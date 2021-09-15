@@ -1,12 +1,10 @@
 import { Probot } from "probot";
+import { onIssueCommented } from "./actions/comment";
+import { onIssueCreated } from "./actions/issue";
 
 export = (app: Probot) => {
-  app.on("issues.opened", async (context) => {
-    const issueComment = context.issue({
-      body: "Thanks for opening this issue!",
-    });
-    await context.octokit.issues.createComment(issueComment);
-  });
+  app.on("issues.opened", onIssueCreated);
+  app.on('issue_comment.created', onIssueCommented);
   // For more information on building apps:
   // https://probot.github.io/docs/
 
