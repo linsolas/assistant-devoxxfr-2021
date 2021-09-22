@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { Context } from "probot";
 export declare const addComment: (context: Context, body: string, delay?: number | undefined) => Promise<import("@octokit/types").OctokitResponse<{
     id: number;
