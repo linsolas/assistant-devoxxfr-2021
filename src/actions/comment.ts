@@ -1,6 +1,7 @@
 import { Context } from 'probot';
-import { AUTHORIZED_USERS } from '../constants';
+import { AUTHORIZED_USERS, IMAGE_BASE } from '../constants';
 import { addComment } from '../utils';
+
 
 export async function onIssueCommented(context: Context) {
   const user = context.payload.issue.user.login;
@@ -8,21 +9,19 @@ export async function onIssueCommented(context: Context) {
     return;
   }
   const { body } = context.payload.comment;
-  if (/moi/i.test(body)) {
-    addComment(context, `Oups ! Désolé ! Alors:
-# Romain Linsolas
+  if (/romain/i.test(body)) {
+    addComment(context, `Oups ! Désolé ! Et voilà :
 
-Bla bla bla
+![Romain Linsolas](${IMAGE_BASE}/romain.png)
     `);
-  } else if (/toi/i.test(body)) {
+  } else if (/toi/i.test(body) || /robot/i.test(body)) {
     addComment(context, `Oh, c'est gentil de demander :smiley:
 
 Je suis un robot :robot:  fait avec [Probot](https://probot.github.io).
 
-![Probot](https://probot.github.io/assets/img/logo.png)
+![Probot](${IMAGE_BASE}/probot.png)
 
-Allez, je vous laisse, je vais aller prendre un Cappuchino-Huile de vidange au Starbucks...
-    `);
+  `);
   }
   return;
 }

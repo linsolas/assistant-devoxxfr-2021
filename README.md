@@ -2,6 +2,9 @@
 
 > A GitHub App built with [Probot](https://github.com/probot/probot) that Our assistant for DevoxxFR 2021 Presentation
 
+https://github.com/settings/installations/19475235
+https://github.com/settings/apps/assistant-devoxxfr-2021
+
 ## Setup
 
 ```sh
