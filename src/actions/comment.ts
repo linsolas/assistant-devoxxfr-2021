@@ -4,7 +4,7 @@ import { addComment } from '../utils';
 
 
 export async function onIssueCommented(context: Context) {
-  const user = context.payload.issue.user.login;
+  const user = context.payload.comment.user.login;
   if (AUTHORIZED_USERS.indexOf(user) === -1) {
     return;
   }
