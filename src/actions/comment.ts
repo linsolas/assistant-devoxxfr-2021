@@ -14,10 +14,10 @@ export async function onIssueCommented(context: Context) {
 
 ![Romain Linsolas](${IMAGE_BASE}/romain.png)
     `);
-  } else if (/toi/i.test(body) || /robot/i.test(body)) {
+  } else if (/toi/i.test(body)) {
     addComment(context, `Oh, c'est gentil de demander :smiley:
 
-Je suis un robot :robot:  fait avec [Probot](https://probot.github.io).
+Je suis un robot :robot: fait avec [Probot](https://probot.github.io).
 
 ![Probot](${IMAGE_BASE}/probot.png)
 
